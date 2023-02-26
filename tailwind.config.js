@@ -2,7 +2,13 @@
 module.exports = {
   content: ["./app/**/*.{ts,tsx,jsx,js}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        soet: "#ffc0c8",
+        pearl: "#F8F6F0",
+        off: "#f5f5f5",
+      },
+    },
   },
   plugins: [],
 };
