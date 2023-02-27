@@ -18,7 +18,7 @@ const products = [
     id: 3,
     name: "chocolate",
     price: 12,
-    imgUrl: "https://i.ibb.co/Cn5GNXP/unnamed.jpg",
+    imgUrl: "https://i.ibb.co/wQ01XLB/IMG-8161-1.jpg",
   },
   {
     id: 4,

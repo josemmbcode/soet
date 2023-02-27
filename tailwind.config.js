@@ -8,6 +8,9 @@ module.exports = {
         pearl: "#F8F6F0",
         off: "#f5f5f5",
       },
+      fontFamily: {
+        amarillo: ["Amarillo", "sans-serif"],
+      },
     },
   },
   plugins: [],
