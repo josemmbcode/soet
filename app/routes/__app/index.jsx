@@ -1,11 +1,17 @@
 import Presentation from "../../components/Presentation";
 import Products from "../../components/Products";
-
+import { createProduct, getProducts } from "../../data/products.server";
+import { useLoaderData } from "@remix-run/react";
 export default function Index() {
+  const products = useLoaderData();
   return (
     <div className="flex justify-center flex-col items-center">
-      <Presentation/>
-      <Products />
+      <Presentation />
+      <Products products={products} />
     </div>
   );
+}
+
+export async function loader() {
+  return getProducts();
 }
