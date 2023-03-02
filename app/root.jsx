@@ -6,7 +6,8 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-
+import { Provider } from "react-redux";
+import store from "./store/store";
 import styles from "./tailwind.css";
 
 export const meta = () => ({
@@ -23,7 +24,9 @@ export default function App() {
         <Links />
       </head>
       <body className="min-h-screen">
-        <Outlet />
+        <Provider store={store}>
+          <Outlet />
+        </Provider>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
