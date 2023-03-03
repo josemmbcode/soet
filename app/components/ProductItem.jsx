@@ -10,6 +10,7 @@ export default function ProductItem({ product }) {
         id: product.id,
         price: product.price,
         name: product.name,
+        imgUrl: product.imgUrl
       })
     );
   };

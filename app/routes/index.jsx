@@ -1,7 +1,7 @@
-import Presentation from "../../components/Presentation";
-import Products from "../../components/Products";
-import { createProduct, getProducts } from "../../data/products.server";
+import { createProduct, getProducts } from "../data/products.server";
 import { useLoaderData } from "@remix-run/react";
+import Presentation from "../components/Presentation";
+import Products from "../components/Products";
 export default function Index() {
   const products = useLoaderData();
   return (
