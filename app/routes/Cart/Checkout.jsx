@@ -7,6 +7,7 @@ import { validateInput } from "../../data/validation.server";
 import { useSelector } from "react-redux";
 import { placeOrder } from "../../data/products.server";
 import CartItem from "../../components/CartItem";
+import OrderSummary from "../../components/OrderSummary";
 export default function Checkout() {
   const [selectedMethod, setSelectedMethod] = useState("");
   const validationErrors = useActionData();
@@ -17,12 +18,12 @@ export default function Checkout() {
     setSelectedMethod(event.target.value);
   }
   return (
-    <div className="flex">
+    <div className="flex flex-col-reverse sm:flex-row">
       <Form
-        className="mx-auto w-screen flex flex-col items-center my-4 flex-1"
+        className="mx-auto flex flex-col items-center my-4 flex-1 sm:flex-[2_1_0%]"
         method="post"
       >
-        <div className="w-1/2 sm:w-1/3 flex justify-center">
+        <div className="w-full sm:w-1/2 flex justify-center">
           <div className="flex flex-col flex-1 mx-1">
             <label className="text-center" htmlFor="nombre">
               Nombre
@@ -53,7 +54,7 @@ export default function Checkout() {
           type="text"
           id="info"
           name="contacto"
-          className="w-1/2 sm:w-1/3 px-2 py-1 border border-soet"
+          className="w-full sm:w-1/2 px-2 py-1 border border-soet"
         />
         <div className="flex justify-center items-center">
           <FaMotorcycle />
@@ -95,7 +96,7 @@ export default function Checkout() {
             </label>
             <input
               id="direccion"
-              className="w-1/2 sm:w-1/3 px-2 py-1 border border-soet"
+              className="w-full sm:w-1/2 px-2 py-1 border border-soet"
               type="text"
               name="direccion"
             />
@@ -137,10 +138,40 @@ export default function Checkout() {
 
         {selectedMethod === "retiro" && (
           <>
-            <div className="h-32 border border-soet text-center font-bold">
+            <div className="text-center font-bold">
               <h1 className="p-4 m-auto">
-                El pedido puede ser retirado en nuestra direccion:{" "}
+                El pedido puede ser retirado en nuestras direcciones:{" "}
               </h1>
+              <div className=" bg-volky w-full sm:w-1/2 px-2 py-1 mx-auto my-1 rounded-2xl flex items-center">
+                <input
+                  type="radio"
+                  className="mx-1"
+                  id="rb1"
+                  name="carro"
+                  value="volky"
+                />
+                <label className="text-justify" htmlFor="rb1">
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                  Laudantium atque, porro, obcaecati officiis cupiditate quod
+                  eius vitae veniam aliquid magni, perspiciatis voluptate
+                  expedita facere cum ad delectus sapiente? Cupiditate, impedit?
+                </label>
+              </div>
+              <div className=" bg-soet w-full sm:w-1/2 px-2 py-1 mx-auto my-1 rounded-2xl flex items-center">
+                <input
+                  type="radio"
+                  className="mx-1"
+                  id="rb2"
+                  name="carro"
+                  value="pinky"
+                />
+                <label className="text-justify" htmlFor="rb2">
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                  Laudantium atque, porro, obcaecati officiis cupiditate quod
+                  eius vitae veniam aliquid magni, perspiciatis voluptate
+                  expedita facere cum ad delectus sapiente? Cupiditate, impedit?
+                </label>
+              </div>
             </div>
             <button
               type="submit"
@@ -156,15 +187,7 @@ export default function Checkout() {
         <input type="hidden" name="total" value={total} />
         <input type="hidden" name="resumen" value={resumen} />
       </Form>
-      <div className="flex-1">
-        <h1 className="text-center">Resumen:</h1>
-        {orderSummary.map((item) => (
-          <CartItem key={item.id} item={item} />
-        ))}
-        <div className="font-extrabold flex-1 self-end text-center mr-14 p-3">
-          Total:${total}
-        </div>
-      </div>
+      <OrderSummary summary={orderSummary} total={total} />
     </div>
   );
 }

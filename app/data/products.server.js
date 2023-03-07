@@ -23,6 +23,15 @@ export async function createProduct(productData) {
   }
 }
 
+export async function getOrdersPlaced() {
+  try {
+    const orders = await prisma.order.findMany();
+    return orders;
+  } catch (error) {
+    throw new Error("Ha ocurrido un error. Por favor intente luego.");
+  }
+}
+
 export async function placeOrder(orderSummary) {
   try {
     return await prisma.order.create({
@@ -36,6 +45,7 @@ export async function placeOrder(orderSummary) {
         total: +orderSummary.total,
         sector: orderSummary.sector,
         resumen: orderSummary.resumen,
+        carro: orderSummary.carro,
       },
     });
   } catch (error) {
