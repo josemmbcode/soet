@@ -22,3 +22,24 @@ export async function createProduct(productData) {
     throw new Error("Ha ocurrido un error agregando el producto.");
   }
 }
+
+export async function placeOrder(orderSummary) {
+  try {
+    return await prisma.order.create({
+      data: {
+        nombre: orderSummary.nombre,
+        apellido: orderSummary.apellido,
+        contacto: +orderSummary.contacto,
+        entrega: orderSummary.entrega,
+        direccion: orderSummary.direccion,
+        referencia: orderSummary.Referencia,
+        total: +orderSummary.total,
+        sector: orderSummary.sector,
+        resumen: orderSummary.resumen,
+      },
+    });
+  } catch (error) {
+    console.log(error);
+    throw new Error("Ha ocurrido un error agregando la orden.");
+  }
+}

@@ -11,8 +11,23 @@ datasource db {
 }
 
 model Product {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-  name String
-  price Int
-  imgUrl String?
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  name       String
+  price      Int
+  imgUrl     String?
+  disponible Boolean? @default(true)
+}
+
+model Order {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  nombre     String
+  apellido   String
+  contacto   Int
+  entrega    String
+  direccion  String
+  referencia String
+  sector     String
+  total      Int
+  resumen    Json
+  pagada     Boolean? @default(false)
 }

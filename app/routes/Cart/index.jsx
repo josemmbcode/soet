@@ -1,10 +1,11 @@
 import React from "react";
-import CartItem from "../../components/CartItem"
+import CartItem from "../../components/CartItem";
 import { useSelector } from "react-redux";
+import { Link } from "@remix-run/react";
 
 export default function Cart() {
   const cartItems = useSelector((state) => state.cart.items);
-  const total = useSelector((state)=> state.cart.total)
+  const total = useSelector((state) => state.cart.total);
   return (
     <div className="flex flex-col items-center justify-start my-4 mx-3 h-auto sm:mx-32 py-0 border border-soet rounded-2xl">
       <div className="flex w-full mt-3 items-center justify-center  py-1">
@@ -20,6 +21,12 @@ export default function Cart() {
       <div className="font-extrabold flex-1 self-end text-center mr-14 p-3">
         Total:${total}
       </div>
+      <Link
+        to="Checkout"
+        className="bg-soet m-4 rounded-full p-2 border border-soet self-end "
+      >
+        Continuar
+      </Link>
     </div>
   );
 }
