@@ -53,3 +53,18 @@ export async function placeOrder(orderSummary) {
     throw new Error("Ha ocurrido un error agregando la orden.");
   }
 }
+
+export async function closeOrder(parameter, mode, id) {
+  try {
+    return await prisma.order.update({
+      data: {
+        [parameter]: mode,
+      },
+      where: {
+        id: id,
+      },
+    });
+  } catch (error) {
+    throw new Error("Ha ocurrido un error. Por favor intente luego.");
+  }
+}

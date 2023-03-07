@@ -1,10 +1,17 @@
 import React from "react";
-import { getOrdersPlaced } from "../../data/products.server";
-import { useLoaderData } from "react-router";
+import { closeOrder, getOrdersPlaced } from "../../data/products.server";
+import { useLoaderData, useFetcher } from "@remix-run/react";
 
 export default function orders() {
+  const fetcher = useFetcher();
   const orders = useLoaderData();
-
+  async function modifyOrderHandler(parameter, id, e) {
+    const orderState = e.target.value === "si";
+    fetcher.submit(
+      { data: JSON.stringify({ parameter, orderState, id }) },
+      { method: "post" }
+    );
+  }
   return (
     <table className="w-full">
       <tbody>
@@ -44,7 +51,16 @@ export default function orders() {
               <th>{order.sector}</th>
               <th>{order.total}</th>
               <th>{display}</th>
-              <th>{order.pagada ? "si" : "no"}</th>
+              <th>
+                <select
+                  value={order.pagada ? "si" : "no"}
+                  onChange={modifyOrderHandler.bind(this, "pagada", order.id)}
+                >
+                  <option value="no">No</option>
+                  <option value="si">Si</option>
+                </select>
+              </th>
+
               <th>{order.cerrada ? "si" : "no"}</th>
             </tr>
           );
@@ -56,4 +72,10 @@ export default function orders() {
 
 export async function loader() {
   return getOrdersPlaced();
+}
+
+export async function action({ request }) {
+  const formData = await request.formData();
+  const object = JSON.parse(formData.get("data"));
+  return await closeOrder(object.parameter, object.orderState, object.id);
 }
