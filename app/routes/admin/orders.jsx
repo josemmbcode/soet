@@ -43,15 +43,15 @@ export default function orders() {
               <td>
                 {order.nombre}-{order.apellido}
               </td>
-              <th>{order.contacto}</th>
-              <th>{order.entrega}</th>
-              <th>{order.carro}</th>
-              <th>{order.direccion}</th>
-              <th>{order.referencia}</th>
-              <th>{order.sector}</th>
-              <th>{order.total}</th>
-              <th>{display}</th>
-              <th>
+              <td>{order.contacto}</td>
+              <td>{order.entrega}</td>
+              <td>{order.carro}</td>
+              <td>{order.direccion}</td>
+              <td>{order.referencia}</td>
+              <td>{order.sector}</td>
+              <td>{order.total}</td>
+              <td>{display}</td>
+              <td>
                 <select
                   value={order.pagada ? "si" : "no"}
                   onChange={modifyOrderHandler.bind(this, "pagada", order.id)}
@@ -59,9 +59,17 @@ export default function orders() {
                   <option value="no">No</option>
                   <option value="si">Si</option>
                 </select>
-              </th>
+              </td>
 
-              <th>{order.cerrada ? "si" : "no"}</th>
+              <td>
+                <select
+                  value={order.cerrada ? "si" : "no"}
+                  onChange={modifyOrderHandler.bind(this, "cerrada", order.id)}
+                >
+                  <option value="no">No</option>
+                  <option value="si">Si</option>
+                </select>
+              </td>
             </tr>
           );
         })}
