@@ -1,6 +1,7 @@
 import React from "react";
 import { closeOrder, getOrdersPlaced } from "../../data/products.server";
 import { useLoaderData, useFetcher } from "@remix-run/react";
+import { requireUserSession } from "../../data/auth.server";
 
 export default function orders() {
   const fetcher = useFetcher();
@@ -78,11 +79,12 @@ export default function orders() {
   );
 }
 
-export async function loader() {
+export async function loader({ request }) {
+  await requireUserSession(request);
   return getOrdersPlaced();
 }
 
-export async function action({ request }) {
+export async function action({ request }) 
   const formData = await request.formData();
   const object = JSON.parse(formData.get("data"));
   return await closeOrder(object.parameter, object.orderState, object.id);
