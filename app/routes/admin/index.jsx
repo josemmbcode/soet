@@ -1,10 +1,14 @@
 import React from "react";
 import AuthForm from "../../components/AuthForm";
 import { validateCredentials } from "../../data/validation.server";
-import { login, signup } from "../../data/auth.server";
+import { getUserFromSession, login, signup } from "../../data/auth.server";
 import { redirect } from "@remix-run/node";
 export default function index() {
   return <AuthForm />;
+}
+
+export async function loader({ request }) {
+  return getUserFromSession(request);
 }
 
 export async function action({ request }) {
