@@ -1,8 +1,8 @@
 import React from "react";
 import { Form, useNavigation } from "@remix-run/react";
-import { createProduct } from "../../data/products.server";
-import { redirect } from "react-router";
-import { requireUserSession } from "../../data/auth.server";
+import { createProduct } from "../../../data/products.server";
+import { redirect } from "@remix-run/node";
+import { requireUserSession } from "../../../data/auth.server";
 
 export default function addProduct() {
   const navigation = useNavigation();
@@ -64,6 +64,7 @@ export async function loader({ request }) {
 }
 
 export async function action({ request }) {
+  await requireUserSession(request);
   const formData = await request.formData();
   const productData = Object.fromEntries(formData);
 

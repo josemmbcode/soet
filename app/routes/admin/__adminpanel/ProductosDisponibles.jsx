@@ -1,7 +1,7 @@
 import { useFetcher, useLoaderData } from "@remix-run/react";
 import React from "react";
-import { requireUserSession } from "../../data/auth.server";
-import { getProducts, updateProduct } from "../../data/products.server";
+import { requireUserSession } from "../../../data/auth.server";
+import { getAllProducts, updateProduct } from "../../../data/products.server";
 
 export default function ProductosDisponibles() {
   const productos = useLoaderData();
@@ -45,7 +45,7 @@ export default function ProductosDisponibles() {
 
 export async function loader({ request }) {
   await requireUserSession(request);
-  return getProducts();
+  return getAllProducts();
 }
 
 export async function action({ request }) {

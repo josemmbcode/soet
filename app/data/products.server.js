@@ -1,5 +1,32 @@
+import { redirect } from "@remix-run/node";
 import { prisma } from "./database.server";
-export async function getProducts() {
+export async function getAvailableProducts() {
+  try {
+    const products = await prisma.product.findMany({
+      where: {
+        disponible: true,
+      },
+    });
+    return products;
+  } catch (error) {
+    throw new Error("Ha ocurrido un error. Por favor intente luego.");
+  }
+}
+
+export async function getProduct(id) {
+  try {
+    const product = await prisma.product.findUnique({
+      where: {
+        id: id,
+      },
+    });
+    return product;
+  } catch (error) {
+    throw new Error("Ha ocurrido un error. Por favor intente luego.");
+  }
+}
+
+export async function getAllProducts() {
   try {
     const products = await prisma.product.findMany();
     return products;
@@ -41,6 +68,19 @@ export async function getOrdersPlaced() {
   try {
     const orders = await prisma.order.findMany();
     return orders;
+  } catch (error) {
+    throw new Error("Ha ocurrido un error. Por favor intente luego.");
+  }
+}
+
+export async function deleteClosedOrders() {
+  try {
+    const orders = await prisma.order.deleteMany({
+      where: {
+        cerrada: true,
+      },
+    });
+    return redirect("/admin/orders");
   } catch (error) {
     throw new Error("Ha ocurrido un error. Por favor intente luego.");
   }

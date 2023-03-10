@@ -1,4 +1,4 @@
-import { createProduct, getProducts } from "../data/products.server";
+import { createProduct, getAvailableProducts } from "../data/products.server";
 import { useLoaderData } from "@remix-run/react";
 import Presentation from "../components/Presentation";
 import Products from "../components/Products";
@@ -13,5 +13,5 @@ export default function Index() {
 }
 
 export async function loader() {
-  return getProducts();
+  return getAvailableProducts();
 }

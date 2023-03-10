@@ -5,7 +5,7 @@ import { FaMotorcycle } from "react-icons/fa";
 import { GiDonut } from "react-icons/gi";
 import { validateInput } from "../../data/validation.server";
 import { useSelector } from "react-redux";
-import { placeOrder } from "../../data/products.server";
+import { getProduct, placeOrder } from "../../data/products.server";
 import CartItem from "../../components/CartItem";
 import OrderSummary from "../../components/OrderSummary";
 export default function Checkout() {
@@ -102,6 +102,7 @@ export default function Checkout() {
               className="w-full sm:w-1/2 px-2 py-1 border border-soet"
               type="text"
               name="direccion"
+              required
             />
             <div className="w-1/2 sm:w-1/3 flex justify-center">
               <div className="flex flex-col flex-1 mx-1">
@@ -113,6 +114,7 @@ export default function Checkout() {
                   className="px-2 py-1 border border-soet"
                   type="text"
                   name="Referencia"
+                  required
                 />
               </div>
               <div className="flex flex-col flex-1 mx-1">
@@ -124,6 +126,7 @@ export default function Checkout() {
                   className="px-2 py-1 border border-soet"
                   type={"text"}
                   name="sector"
+                  required
                 />
               </div>
             </div>
@@ -198,17 +201,35 @@ export default function Checkout() {
 export async function action({ request }) {
   const formData = await request.formData();
   const orderData = Object.fromEntries(formData);
-
-  try {
-    validateInput(orderData);
-  } catch (error) {
-    return error;
+  const resumen = JSON.parse(orderData.resumen);
+  let totalCalculated = 0;
+  const promises = [];
+  for (let element of resumen) {
+    promises.push(
+      new Promise(async (resolve) => {
+        const product = await getProduct(element.id);
+        resolve(product.price * element.quantity);
+      })
+    );
   }
 
-  try {
-    await placeOrder(orderData);
-  } catch (error) {
-    throw error;
+  await Promise.all(promises).then((values) => {
+    values.map((value) => (totalCalculated += value));
+  });
+
+  if (totalCalculated == orderData.total) {
+    try {
+      validateInput(orderData);
+    } catch (error) {
+      return error;
+    }
+    try {
+      await placeOrder(orderData);
+    } catch (error) {
+      throw error;
+    }
+    return redirect("/Cart/Payment");
+  } else {
+    return { error: "Ha ocurrido un error" };
   }
-  return redirect("/Cart/Payment");
 }

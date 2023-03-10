@@ -1,7 +1,7 @@
 import React from "react";
-import { closeOrder, getOrdersPlaced } from "../../data/products.server";
+import { closeOrder, getOrdersPlaced } from "../../../data/products.server";
 import { useLoaderData, useFetcher } from "@remix-run/react";
-import { requireUserSession } from "../../data/auth.server";
+import { requireUserSession } from "../../../data/auth.server";
 
 export default function orders() {
   const fetcher = useFetcher();
@@ -14,8 +14,8 @@ export default function orders() {
     );
   }
   return (
-    <table className="w-full">
-      <tbody>
+    <table className="w-full text-center">
+      <tbody> 
         <tr>
           <th>#</th>
           <th>Nombre y Apellido</th>
@@ -31,15 +31,15 @@ export default function orders() {
           <th>Cerrada?</th>
         </tr>
         {orders.map((order) => {
-          const test = JSON.parse(order.resumen);
-          const display = test.map((orden) => (
-            <div key={orden.id}>
+          const resumen = JSON.parse(order.resumen);
+          const orderDetails = resumen.map((orden) => (
+            <div key={orden.id} className='flex flex-row text-center justify-center items-center'>
               <p>{orden.name}</p>
               <p>{orden.quantity}</p>
             </div>
           ));
           return (
-            <tr key={order.id} className="border border-black">
+            <tr key={order.id} className="border border-black px-0">
               <td>{order.id}</td>
               <td>
                 {order.nombre}-{order.apellido}
@@ -51,7 +51,7 @@ export default function orders() {
               <td>{order.referencia}</td>
               <td>{order.sector}</td>
               <td>{order.total}</td>
-              <td>{display}</td>
+              <td>{orderDetails}</td>
               <td>
                 <select
                   value={order.pagada ? "si" : "no"}
