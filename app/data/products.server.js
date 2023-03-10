@@ -8,12 +8,26 @@ export async function getProducts() {
   }
 }
 
+export async function updateProduct(id, parameter, value) {
+  try {
+    return await prisma.product.update({
+      data: {
+        [parameter]: value,
+      },
+      where: {
+        id,
+      },
+    });
+  } catch (error) {
+    throw new Error("Ha ocurrido un error. Por favor intente luego.");
+  }
+}
 export async function createProduct(productData) {
   try {
     return await prisma.product.create({
       data: {
         name: productData.name,
-        price: productData.price,
+        price: +productData.price,
         imgUrl: productData.imgUrl,
       },
     });

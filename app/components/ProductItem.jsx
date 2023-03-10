@@ -10,7 +10,7 @@ export default function ProductItem({ product }) {
         id: product.id,
         price: product.price,
         name: product.name,
-        imgUrl: product.imgUrl
+        imgUrl: product.imgUrl,
       })
     );
   };
@@ -26,7 +26,7 @@ export default function ProductItem({ product }) {
       <div className="border-x-2 border-b-2 rounded-b-lg border-soet flex flex-row justify-end items-center">
         <button
           onClick={addToCartHandler}
-          className="p-1 bg-soet rounded-md mr-1 mb-1 text-stone-100"
+          className="p-1 bg-soet rounded-md mr-1 mb-1 text-stone-100 hover:shadow-xl shadow-slate-800 transition-shadow duration-200 "
         >
           Añadir
         </button>

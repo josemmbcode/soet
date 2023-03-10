@@ -85,6 +85,7 @@ export async function loader({ request }) {
 }
 
 export async function action({ request }) {
+  await requireUserSession(request);
   const formData = await request.formData();
   const object = JSON.parse(formData.get("data"));
   return await closeOrder(object.parameter, object.orderState, object.id);

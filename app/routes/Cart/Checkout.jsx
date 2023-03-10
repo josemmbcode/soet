@@ -23,6 +23,9 @@ export default function Checkout() {
         className="mx-auto flex flex-col items-center my-4 flex-1 sm:flex-[2_1_0%]"
         method="post"
       >
+        <div className="h-20 w-20 flex justify-center items-center">
+          <img src="/images/a1.png" className="h-full w-full brightness-75" />
+        </div>
         <div className="w-full sm:w-1/2 flex justify-center">
           <div className="flex flex-col flex-1 mx-1">
             <label className="text-center" htmlFor="nombre">
