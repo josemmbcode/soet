@@ -15,15 +15,15 @@ export default function ProductItem({ product }) {
     );
   };
   return (
-    <div className="border-x-2 border-b-2 rounded-b-lg m-6 overflow-hidden rounded-lg hover:shadow-slate-500 hover:shadow-md transition-shadow duration-200 relative group">
+    <div className=" m-6 overflow-hidden rounded-lg hover:shadow-slate-500 hover:shadow-md transition-shadow duration-200 relative group">
       <div className="overflow-hidden flex-shrink-0 group-hover:opacity-50">
         <img className="h-full w-full object-cover" src={product.imgUrl} />
       </div>
-      <div className="flex justify-between p-3 capitalize border-x-2 border-soet">
+      <div className="flex justify-between p-3 capitalize sm:border-b-2 sm:border-b-soet border-x-2 border-x-soet sm:rounded-b-lg overflow-hidden">
         <p>{product.name}</p>
         <h2 className="font-bold text-lg">${product.price}</h2>
       </div>
-      <div className="border-x-2 border-b-2 rounded-b-lg border-soet flex flex-row justify-end items-center">
+      <div className=" flex flex-row justify-end items-center overflow-hidden border-b-2 border-b-soet border-x-2 border-x-soet rounded-b-lg sm:border-none">
         <button
           onClick={addToCartHandler}
           className="p-2 bg-volky rounded-md mr-1 mb-1 text-stone-100 hover:shadow-xl shadow-slate-800 transition-shadow duration-200 sm:absolute sm:left-28 sm:top-48 md:left-24 sm:hidden group-hover:block group-hover:opacity-100"
