@@ -5,8 +5,12 @@ import { FaMotorcycle } from "react-icons/fa";
 import { GiDonut } from "react-icons/gi";
 import { validateInput } from "../../data/validation.server";
 import { useSelector } from "react-redux";
-import { getProduct, placeOrder } from "../../data/products.server";
-import CartItem from "../../components/CartItem";
+import {
+  getLocation,
+  getProduct,
+  placeOrder,
+} from "../../data/products.server";
+import { useLoaderData } from "@remix-run/react";
 import OrderSummary from "../../components/OrderSummary";
 export default function Checkout() {
   const [selectedMethod, setSelectedMethod] = useState("");
@@ -17,6 +21,7 @@ export default function Checkout() {
   function showForm(event) {
     setSelectedMethod(event.target.value);
   }
+  const { volky, pinky } = useLoaderData();
   return (
     <div className="flex flex-col-reverse sm:flex-row">
       <Form
@@ -146,7 +151,7 @@ export default function Checkout() {
           <>
             <div className="text-center font-bold">
               <h1 className="p-4 m-auto">
-                El pedido puede ser retirado en nuestras direcciones:{" "}
+                El pedido puede ser retirado en nuestras direcciones:
               </h1>
               <div className=" bg-volky w-full sm:w-1/2 px-2 py-1 mx-auto my-1 rounded-2xl flex items-center">
                 <input
@@ -157,10 +162,7 @@ export default function Checkout() {
                   value="volky"
                 />
                 <label className="text-justify" htmlFor="rb1">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Laudantium atque, porro, obcaecati officiis cupiditate quod
-                  eius vitae veniam aliquid magni, perspiciatis voluptate
-                  expedita facere cum ad delectus sapiente? Cupiditate, impedit?
+                  {volky.lugarActual}
                 </label>
               </div>
               <div className=" bg-soet w-full sm:w-1/2 px-2 py-1 mx-auto my-1 rounded-2xl flex items-center">
@@ -172,10 +174,7 @@ export default function Checkout() {
                   value="pinky"
                 />
                 <label className="text-justify" htmlFor="rb2">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Laudantium atque, porro, obcaecati officiis cupiditate quod
-                  eius vitae veniam aliquid magni, perspiciatis voluptate
-                  expedita facere cum ad delectus sapiente? Cupiditate, impedit?
+                  {pinky.lugarActual}
                 </label>
               </div>
             </div>
@@ -196,6 +195,12 @@ export default function Checkout() {
       <OrderSummary summary={orderSummary} total={total} />
     </div>
   );
+}
+
+export async function loader() {
+  const volky = await getLocation("volky");
+  const pinky = await getLocation("pinky");
+  return { volky, pinky };
 }
 
 export async function action({ request }) {

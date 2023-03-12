@@ -15,8 +15,8 @@ export default function ProductItem({ product }) {
     );
   };
   return (
-    <div className=" m-6 overflow-hidden rounded-lg hover:shadow-slate-500 hover:shadow-md transition-shadow duration-200">
-      <div className="overflow-hidden flex-shrink-0">
+    <div className="border-x-2 border-b-2 rounded-b-lg m-6 overflow-hidden rounded-lg hover:shadow-slate-500 hover:shadow-md transition-shadow duration-200 relative group">
+      <div className="overflow-hidden flex-shrink-0 group-hover:opacity-50">
         <img className="h-full w-full object-cover" src={product.imgUrl} />
       </div>
       <div className="flex justify-between p-3 capitalize border-x-2 border-soet">
@@ -26,7 +26,7 @@ export default function ProductItem({ product }) {
       <div className="border-x-2 border-b-2 rounded-b-lg border-soet flex flex-row justify-end items-center">
         <button
           onClick={addToCartHandler}
-          className="p-1 bg-soet rounded-md mr-1 mb-1 text-stone-100 hover:shadow-xl shadow-slate-800 transition-shadow duration-200 "
+          className="p-2 bg-volky rounded-md mr-1 mb-1 text-stone-100 hover:shadow-xl shadow-slate-800 transition-shadow duration-200 sm:absolute sm:left-28 sm:top-48 md:left-24 sm:hidden group-hover:block group-hover:opacity-100"
         >
           Añadir
         </button>

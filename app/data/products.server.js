@@ -26,6 +26,34 @@ export async function getProduct(id) {
   }
 }
 
+export async function updateLocation(nombre, lugar) {
+  try {
+    return await prisma.location.update({
+      data: {
+        lugarActual: lugar,
+      },
+      where: {
+        nombre,
+      },
+    });
+  } catch (error) {
+    throw new Error("Ha ocurrido un error. Por favor intente luego.");
+  }
+}
+
+export async function getLocation(nombre) {
+  try {
+    const location = await prisma.location.findUnique({
+      where: {
+        nombre: nombre,
+      },
+    });
+    return location;
+  } catch (error) {
+    throw new Error("Ha ocurrido un error. Por favor intente luego.");
+  }
+}
+
 export async function getAllProducts() {
   try {
     const products = await prisma.product.findMany();
