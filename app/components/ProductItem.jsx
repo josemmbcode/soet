@@ -15,7 +15,7 @@ export default function ProductItem({ product }) {
     );
   };
   return (
-    <div className=" m-6 overflow-hidden rounded-lg hover:shadow-slate-500 hover:shadow-md transition-shadow duration-200 relative group">
+    <div className=" m-6 overflow-hidden rounded-lg hover:shadow-slate-500 hover:shadow-md transition-shadow duration-200 sm:relative group">
       <div className="overflow-hidden flex-shrink-0 group-hover:opacity-50">
         <img className="h-full w-full object-cover" src={product.imgUrl} />
       </div>
@@ -23,11 +23,11 @@ export default function ProductItem({ product }) {
         <p>{product.name}</p>
         <h2 className="font-bold text-lg">${product.price}</h2>
       </div>
-      <div className=" flex flex-row justify-end items-center overflow-hidden border-b-2 border-b-soet border-x-2 border-x-soet rounded-b-lg sm:border-none">
+      <div className="overflow-hidden flex justify-end  sm:block   border-b-2 sm:h-20 sm:w-20 border-b-soet border-x-2 border-x-soet rounded-b-lg sm:border-none sm:absolute sm:bottom-0 sm:top-0 sm:right-0 sm:left-0 sm:m-auto">
         <button
           onClick={addToCartHandler}
-          className="p-2 bg-volky rounded-md mr-1 mb-1 text-stone-100 hover:shadow-xl shadow-slate-800 transition-shadow duration-200 sm:absolute sm:left-28 sm:top-48 md:left-24 sm:hidden group-hover:block group-hover:opacity-100"
-        >
+          className="p-2 bg-volky text-stone-100 block hover:shadow-xl rounded-lg shadow-slate-800 transition-shadow duration-200 m-2 sm:hidden group-hover:block"
+        > 
           Añadir
         </button>
       </div>

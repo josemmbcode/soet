@@ -8,9 +8,10 @@ import {
 } from "@remix-run/react";
 import { Provider } from "react-redux";
 import Header from "./components/Header";
-import store from "./store/store";
+import store, { persistor } from "./store/store";
 import styles from "./tailwind.css";
 import Footer from "./components/Footer";
+import { PersistGate } from "redux-persist/integration/react";
 
 export const meta = () => ({
   charset: "utf-8",
@@ -27,9 +28,11 @@ export default function App() {
       </head>
       <body className="min-h-screen">
         <Provider store={store}>
-          <Header />
-          <Outlet />
-          <Footer />
+          <PersistGate persistor={persistor}>
+            <Header />
+            <Outlet />
+            <Footer />
+          </PersistGate>
         </Provider>
         <ScrollRestoration />
         <Scripts />
