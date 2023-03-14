@@ -84,6 +84,7 @@ export async function createProduct(productData) {
         name: productData.name,
         price: +productData.price,
         imgUrl: productData.imgUrl,
+        tipo: productData.tipo,
       },
     });
   } catch (error) {

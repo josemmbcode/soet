@@ -1,8 +1,7 @@
-import React from "react";
 import AuthForm from "../../components/AuthForm";
 import { validateCredentials } from "../../data/validation.server";
-import { getUserFromSession, login, signup } from "../../data/auth.server";
-import { redirect } from "@remix-run/node";
+import { getUserFromSession, login } from "../../data/auth.server";
+
 export default function index() {
   return <AuthForm />;
 }
