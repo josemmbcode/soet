@@ -1,17 +1,23 @@
-import { createProduct, getAvailableProducts } from "../data/products.server";
-import { useLoaderData } from "@remix-run/react";
+import { getAvailableProducts } from "../data/products.server";
 import Presentation from "../components/Presentation";
 import Products from "../components/Products";
 export default function Index() {
-  const products = useLoaderData();
   return (
     <div className="flex justify-center flex-col items-center">
       <Presentation />
-      <Products products={products} />
+      <Products />
     </div>
   );
 }
 
 export async function loader() {
-  return getAvailableProducts();
+  const date = new Date().toLocaleDateString("en-US", {
+    timeZone: "America/Caracas",
+    weekday: "long",
+  });
+
+  const daysOpen = ["Thursday", "Friday", "Saturday", "Sunday"];
+
+  const isOpen = daysOpen.includes(date);
+  return { products: await getAvailableProducts(), isOpen: isOpen };
 }
