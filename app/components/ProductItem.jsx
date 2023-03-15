@@ -10,6 +10,7 @@ export default function ProductItem({ product }) {
         id: product.id,
         price: product.price,
         name: product.name,
+        relleno: product.tipo,
         imgUrl: product.imgUrl,
       })
     );
@@ -27,7 +28,7 @@ export default function ProductItem({ product }) {
         <button
           onClick={addToCartHandler}
           className="p-2 bg-volky text-stone-100 block hover:shadow-xl rounded-lg shadow-slate-800 transition-shadow duration-200 m-2 sm:hidden group-hover:block"
-        > 
+        >
           Añadir
         </button>
       </div>

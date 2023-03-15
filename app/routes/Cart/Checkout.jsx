@@ -8,6 +8,7 @@ import {
 } from "../../data/products.server";
 import OrderSummary from "../../components/OrderSummary";
 import CheckoutForm from "../../components/CheckoutForm";
+import { isBusinessOpen } from "../../data/utils.server";
 export default function Checkout() {
   const total = useSelector((state) => state.cart.total);
   const orderSummary = useSelector((state) => state.cart.items);
@@ -21,6 +22,10 @@ export default function Checkout() {
 }
 
 export async function loader() {
+  const isOpen = isBusinessOpen();
+  if (!isOpen) {
+    return redirect("/");
+  }
   const volky = await getLocation("volky");
   const pinky = await getLocation("pinky");
   return { volky, pinky };

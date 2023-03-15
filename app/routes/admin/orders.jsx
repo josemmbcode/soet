@@ -20,7 +20,6 @@ export default function orders() {
       <table className="w-full text-center">
         <tbody>
           <tr>
-            <th>#</th>
             <th>Nombre y Apellido</th>
             <th>Telefono</th>
             <th>Entrega</th>
@@ -46,7 +45,6 @@ export default function orders() {
             ));
             return (
               <tr key={order.id} className="border border-black px-0">
-                <td>{order.id}</td>
                 <td>
                   {order.nombre}-{order.apellido}
                 </td>
@@ -57,7 +55,7 @@ export default function orders() {
                 <td>{order.referencia}</td>
                 <td>{order.sector}</td>
                 <td>{order.total}</td>
-                <td>{orderDetails}</td>
+                <td className="w-64">{orderDetails}</td>
                 <td>
                   <select
                     value={order.pagada ? "si" : "no"}

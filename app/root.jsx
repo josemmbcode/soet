@@ -12,25 +12,27 @@ import store, { persistor } from "./store/store";
 import styles from "./tailwind.css";
 import Footer from "./components/Footer";
 import { PersistGate } from "redux-persist/integration/react";
-
+import Error from "./components/Error";
 export const meta = () => ({
   charset: "utf-8",
   title: "Soet Postres",
   viewport: "width=device-width,initial-scale=1",
+  description: "Donas y postres en Maracaibo. No compartirlas seria imperdonable!"
 });
 
-export default function App() {
+function Document({ title, children }) {
   return (
     <html lang="en">
       <head>
+        {title && <title>{title}</title>}
         <Meta />
         <Links />
       </head>
-      <body className="min-h-screen">
+      <body>
         <Provider store={store}>
           <PersistGate persistor={persistor}>
             <Header />
-            <Outlet />
+            {children}
             <Footer />
           </PersistGate>
         </Provider>
@@ -42,4 +44,23 @@ export default function App() {
   );
 }
 
+export default function App() {
+  return (
+    <Document>
+      <Outlet />
+    </Document>
+  );
+}
+
+export function ErrorBoundary({ error }) {
+  return (
+    <Document title="Ha ocurrido un error">
+      <main>
+        <Error title="Ha ocurrido un errror">
+          <p>{error.message || "Algo ha fallado. Intente de nuevo."}</p>
+        </Error>
+      </main>
+    </Document>
+  );
+}
 export const links = () => [{ rel: "stylesheet", href: styles }];

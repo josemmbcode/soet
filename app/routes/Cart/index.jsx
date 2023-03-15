@@ -7,9 +7,9 @@ export default function Cart() {
   const cartItems = useSelector((state) => state.cart.items);
   const total = useSelector((state) => state.cart.total);
   return (
-    <div className="flex flex-col items-center justify-start my-4 mx-3 h-auto sm:mx-32 py-0 border border-soet rounded-2xl">
+    <div className="flex flex-col items-center justify-start my-4 mx-3 h-auto md:mx-24 py-0 border border-soet rounded-2xl">
       <div className="flex w-full mt-3 items-center justify-center  py-1">
-        <div className="w-16 sm:w-52  flex-1 text-center border-b border-soet">
+        <div className="w-16 sm:w-52  flex-1 text-center border-b border-soet px-2">
           Foto
         </div>
         <div className="w-0 flex-1 text-center border-b border-soet">

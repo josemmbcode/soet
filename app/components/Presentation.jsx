@@ -11,7 +11,7 @@ export default function Presentation() {
         Disponibles de jueves a domingo.
       </h2>
       {!isOpen && (
-        <h2 className="text-2xl my-8 text-justify leading-relaxed mx-4 sm:mx-auto">
+        <h2 className="text-2xl my-8 text-justify leading-relaxed mx-4 sm:mx-auto p-4">
           ATENCIÓN: Hoy nos encontramos cerrados, ¡Puedes mirar nuestros
           productos y decidir cual probar cuando volvamos!
         </h2>
