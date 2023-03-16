@@ -8,9 +8,9 @@ export function isBusinessOpen() {
     timeZone: "America/Caracas",
     hour: "numeric",
   });
-  const daysOpen = ["Thursday", "Friday", "Saturday", "Sunday", "Monday"];
+  const daysOpen = ["Friday", "Saturday", "Sunday", "Monday"];
 
-  const isOpen = daysOpen.includes(date) && hour >= 14 && hour <= 22;
+  const isOpen = daysOpen.includes(date);
 
   return isOpen;
 }
