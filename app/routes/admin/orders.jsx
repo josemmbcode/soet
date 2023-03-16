@@ -14,12 +14,13 @@ export default function orders() {
       { method: "post" }
     );
   }
+
   return (
     <>
       <AdminHeader />
-      <table className="w-full text-center">
-        <tbody>
-          <tr>
+      <table className="w-full text-center max-md:block">
+        <tbody className="max-md:block">
+          <tr className="max-md:block max-md:absolute max-md:top-[-9999px] max-md:left-[-9999px]">
             <th>Nombre y Apellido</th>
             <th>Telefono</th>
             <th>Entrega</th>
@@ -44,19 +45,19 @@ export default function orders() {
               </div>
             ));
             return (
-              <tr key={order.id} className="border border-black px-0">
-                <td>
+              <tr key={order.id} className="border border-black px-0 max-md:border-gray-400 max-md:block">
+                <td className="max-md:block max-md:border-none max-md:border-b max-md:border-gray-600 max-md:relative max-md:pl-[50%] max-md:whitespace-normal max-md:text-left">
                   {order.nombre}-{order.apellido}
                 </td>
-                <td>{order.contacto}</td>
-                <td>{order.entrega}</td>
-                <td>{order.carro}</td>
-                <td>{order.direccion}</td>
-                <td>{order.referencia}</td>
-                <td>{order.sector}</td>
-                <td>{order.total}</td>
-                <td className="w-64">{orderDetails}</td>
-                <td>
+                <td className="max-md:block max-md:border-none max-md:border-b max-md:border-gray-600 max-md:relative max-md:pl-[50%] max-md:whitespace-normal max-md:text-left">{order.contacto}</td>
+                <td className="max-md:block max-md:border-none max-md:border-b max-md:border-gray-600 max-md:relative max-md:pl-[50%] max-md:whitespace-normal max-md:text-left">{order.entrega}</td>
+                <td className="max-md:block max-md:border-none max-md:border-b max-md:border-gray-600 max-md:relative max-md:pl-[50%] max-md:whitespace-normal max-md:text-left">{order.carro}</td>
+                <td className="max-md:block max-md:border-none max-md:border-b max-md:border-gray-600 max-md:relative max-md:pl-[50%] max-md:whitespace-normal max-md:text-left">{order.direccion}</td>
+                <td className="max-md:block max-md:border-none max-md:border-b max-md:border-gray-600 max-md:relative max-md:pl-[50%] max-md:whitespace-normal max-md:text-left">{order.referencia}</td>
+                <td className="max-md:block max-md:border-none max-md:border-b max-md:border-gray-600 max-md:relative max-md:pl-[50%] max-md:whitespace-normal max-md:text-left">{order.sector}</td>
+                <td className="max-md:block max-md:border-none max-md:border-b max-md:border-gray-600 max-md:relative max-md:pl-[50%] max-md:whitespace-normal max-md:text-left">${order.total}</td>
+                <td className="max-md:block max-md:border-none max-md:border-b max-md:border-gray-600 max-md:relative max-md:pl-[50%] max-md:whitespace-normal max-md:text-left lg:w-64">{orderDetails}</td>
+                <td className="max-md:block max-md:border-none max-md:border-b max-md:border-gray-600 max-md:relative max-md:pl-[50%] max-md:whitespace-normal max-md:text-left">
                   <select
                     value={order.pagada ? "si" : "no"}
                     onChange={modifyOrderHandler.bind(this, "pagada", order.id)}
@@ -66,7 +67,7 @@ export default function orders() {
                   </select>
                 </td>
 
-                <td>
+                <td className="max-md:block max-md:border-none max-md:border-b max-md:border-gray-600 max-md:relative max-md:pl-[50%] max-md:whitespace-normal max-md:text-left">
                   <select
                     value={order.cerrada ? "si" : "no"}
                     onChange={modifyOrderHandler.bind(

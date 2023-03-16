@@ -9,15 +9,21 @@ import {
 import OrderSummary from "../../components/OrderSummary";
 import CheckoutForm from "../../components/CheckoutForm";
 import { isBusinessOpen } from "../../data/utils.server";
+import EmptyCar from "../../components/EmptyCar";
 export default function Checkout() {
   const total = useSelector((state) => state.cart.total);
   const orderSummary = useSelector((state) => state.cart.items);
 
   return (
-    <div className="flex flex-col-reverse sm:flex-row">
-      <CheckoutForm />
-      <OrderSummary summary={orderSummary} total={total} />
-    </div>
+    <>
+      {orderSummary.length === 0 && <EmptyCar />}
+      {orderSummary.length > 0 && (
+        <div className="flex flex-col-reverse sm:flex-row">
+          <CheckoutForm />
+          <OrderSummary summary={orderSummary} total={total} />
+        </div>
+      )}
+    </>
   );
 }
 

@@ -2,7 +2,7 @@ function isValidNumber(value) {
   return value && value.length >= 10 && !isNaN(value);
 }
 
-function isValidName(value) {
+function isValidText(value) {
   return value && value.trim().length > 0;
 }
 export function validateInput(input) {
@@ -11,13 +11,26 @@ export function validateInput(input) {
   if (!isValidNumber(input.contacto)) {
     errors.contacto = "Numero de telefono invalido.";
   }
-  if (!isValidName(input.nombre)) {
+  if (!isValidText(input.nombre)) {
     errors.nombre = "El nombre no puede estar vacio.";
   }
 
-  if (!isValidName(input.apellido)) {
+  if (!isValidText(input.apellido)) {
     errors.apellido = "El apellido no puede estar vacio.";
   }
+
+  if (input.entrega === "delivery") {
+    if (!isValidText(input.direccion)) {
+      errors.direccion = "La direccion no puede estar vacia.";
+    }
+    if (!isValidText(input.Referencia)) {
+      errors.Referencia = "El punto de referencia no puede estar vacio.";
+    }
+    if (!isValidText(input.sector)) {
+      errors.Referencia = "El sector no puede estar vacio.";
+    }
+  }
+
   if (Object.keys(errors).length > 0) {
     throw errors;
   }
