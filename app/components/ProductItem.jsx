@@ -20,7 +20,7 @@ export default function ProductItem({ product }) {
       <div className="overflow-hidden flex-shrink-0 group-hover:opacity-50">
         <img className="h-full w-full object-cover" src={product.imgUrl} />
       </div>
-      <div className="flex justify-between p-3 capitalize sm:border-b-2 sm:border-b-soet border-x-2 border-x-soet sm:rounded-b-lg overflow-hidden">
+      <div className="flex justify-between p-3 capitalize sm:border-b-2 sm:border-b-soet border-x-2 border-x-soet sm:rounded-b-lg overflow-hidden max-sm:h-16">
         <p>{product.name}</p>
         <h2 className="font-bold text-lg">${product.price}</h2>
       </div>

@@ -35,7 +35,7 @@ model Order {
   direccion  String?
   referencia String?
   sector     String?
-  total      Int
+  total      Float
   resumen    Json
   pagada     Boolean? @default(false)
   cerrada    Boolean? @default(false)

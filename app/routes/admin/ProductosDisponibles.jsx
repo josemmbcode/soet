@@ -17,11 +17,12 @@ export default function ProductosDisponibles() {
   return (
     <>
       <AdminHeader />
-      <table>
+      <table className="w-2/3 mx-auto text-center">
         <tbody>
           <tr>
-            <th>Nombre</th>
+            <th className="mx-4">Nombre</th>
             <th>Precio</th>
+            <th>Relleno</th>
             <th>Disponible</th>
           </tr>
           {productos.map((producto) => {
@@ -29,6 +30,7 @@ export default function ProductosDisponibles() {
               <tr key={producto.id} className="border border-black">
                 <td>{producto.name}</td>
                 <td>{producto.price}</td>
+                <td>{producto.tipo}</td>
                 <td>
                   <select
                     value={producto.disponible ? "si" : "no"}

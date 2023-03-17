@@ -17,6 +17,8 @@ export function loader() {
   if (!isOpen) {
     return redirect("/");
   }
+
+  else return null
 }
 
 export function headers() {

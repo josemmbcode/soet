@@ -40,23 +40,41 @@ export default function orders() {
                 key={orden.id}
                 className="flex flex-row text-center justify-center items-center"
               >
-                <p>{orden.name}</p>
-                <p>{orden.quantity}</p>
+                <p>{`${orden.quantity} ${orden.name} de ${orden.relleno}`}</p>
               </div>
             ));
             return (
-              <tr key={order.id} className="border border-black px-0 max-md:border-gray-400 max-md:block">
+              <tr
+                key={order.id}
+                className="border border-black px-0 max-md:border-gray-400 max-md:block"
+              >
                 <td className="max-md:block max-md:border-none max-md:border-b max-md:border-gray-600 max-md:relative max-md:pl-[50%] max-md:whitespace-normal max-md:text-left">
                   {order.nombre}-{order.apellido}
                 </td>
-                <td className="max-md:block max-md:border-none max-md:border-b max-md:border-gray-600 max-md:relative max-md:pl-[50%] max-md:whitespace-normal max-md:text-left">{order.contacto}</td>
-                <td className="max-md:block max-md:border-none max-md:border-b max-md:border-gray-600 max-md:relative max-md:pl-[50%] max-md:whitespace-normal max-md:text-left">{order.entrega}</td>
-                <td className="max-md:block max-md:border-none max-md:border-b max-md:border-gray-600 max-md:relative max-md:pl-[50%] max-md:whitespace-normal max-md:text-left">{order.carro}</td>
-                <td className="max-md:block max-md:border-none max-md:border-b max-md:border-gray-600 max-md:relative max-md:pl-[50%] max-md:whitespace-normal max-md:text-left">{order.direccion}</td>
-                <td className="max-md:block max-md:border-none max-md:border-b max-md:border-gray-600 max-md:relative max-md:pl-[50%] max-md:whitespace-normal max-md:text-left">{order.referencia}</td>
-                <td className="max-md:block max-md:border-none max-md:border-b max-md:border-gray-600 max-md:relative max-md:pl-[50%] max-md:whitespace-normal max-md:text-left">{order.sector}</td>
-                <td className="max-md:block max-md:border-none max-md:border-b max-md:border-gray-600 max-md:relative max-md:pl-[50%] max-md:whitespace-normal max-md:text-left">${order.total}</td>
-                <td className="max-md:block max-md:border-none max-md:border-b max-md:border-gray-600 max-md:relative max-md:pl-[50%] max-md:whitespace-normal max-md:text-left lg:w-64">{orderDetails}</td>
+                <td className="max-md:block max-md:border-none max-md:border-b max-md:border-gray-600 max-md:relative max-md:pl-[50%] max-md:whitespace-normal max-md:text-left">
+                  {order.contacto}
+                </td>
+                <td className="max-md:block max-md:border-none max-md:border-b max-md:border-gray-600 max-md:relative max-md:pl-[50%] max-md:whitespace-normal max-md:text-left">
+                  {order.entrega}
+                </td>
+                <td className="max-md:block max-md:border-none max-md:border-b max-md:border-gray-600 max-md:relative max-md:pl-[50%] max-md:whitespace-normal max-md:text-left">
+                  {order.carro}
+                </td>
+                <td className="max-md:block max-md:border-none max-md:border-b max-md:border-gray-600 max-md:relative max-md:pl-[50%] max-md:whitespace-normal max-md:text-left">
+                  {order.direccion}
+                </td>
+                <td className="max-md:block max-md:border-none max-md:border-b max-md:border-gray-600 max-md:relative max-md:pl-[50%] max-md:whitespace-normal max-md:text-left">
+                  {order.referencia}
+                </td>
+                <td className="max-md:block max-md:border-none max-md:border-b max-md:border-gray-600 max-md:relative max-md:pl-[50%] max-md:whitespace-normal max-md:text-left">
+                  {order.sector}
+                </td>
+                <td className="max-md:block max-md:border-none max-md:border-b max-md:border-gray-600 max-md:relative max-md:pl-[50%] max-md:whitespace-normal max-md:text-left">
+                  ${order.total}
+                </td>
+                <td className="max-md:block max-md:border-none max-md:border-b max-md:border-gray-600 max-md:relative max-md:pl-[50%] max-md:whitespace-normal max-md:text-left lg:w-64">
+                  {orderDetails}
+                </td>
                 <td className="max-md:block max-md:border-none max-md:border-b max-md:border-gray-600 max-md:relative max-md:pl-[50%] max-md:whitespace-normal max-md:text-left">
                   <select
                     value={order.pagada ? "si" : "no"}
