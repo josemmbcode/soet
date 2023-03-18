@@ -67,7 +67,7 @@ export async function action({ request }) {
     } catch (error) {
       throw error;
     }
-    return redirect("/Cart/Payment");
+    return redirect(`/Cart/Payment?total=${orderData.total}`);
   } else {
     return { error: "Ha ocurrido un error" };
   }

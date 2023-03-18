@@ -24,7 +24,7 @@ export default function Products() {
       )}
       {cremaDonuts.length > 0 && (
         <>
-          <h2 className="text-2xl my-8 text-center leading-relaxed mx-2 sm:mx-auto font-semibold">
+          <h2 className="text-2xl my-8 text-center leading-relaxed mx-2 sm:mx-auto font-semibold text-[#252525]">
             CREMA PASTELERA
           </h2>
           <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 max-w-6xl">
