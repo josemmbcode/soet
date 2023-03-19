@@ -27,7 +27,7 @@ export default function Payment() {
       <h2 className="text-center sm:mx-auto mt-16 text-3xl h-32 mx-8">
         CONTAMOS CON LOS SIGUIENTES MÉTODOS DE PAGO
       </h2>
-      <div className="flex flex-col sm:flex-row justify-center items-center bg-soet">
+      <div className="flex flex-col sm:flex-row justify-center items-center bg-taller">
         <div className="rounded-lg m-8 bg-pearl p-4 h-44 flex-1 text-center w-56 flex justify-center items-center flex-col">
           <div className="flex justify-center items-center">
             <p className="font-bold mr-1">Transferencia en Bs Banesco</p>

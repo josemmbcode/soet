@@ -17,7 +17,8 @@ export const meta = () => ({
   charset: "utf-8",
   title: "Soet Postres",
   viewport: "width=device-width,initial-scale=1",
-  description: "Donas y postres en Maracaibo. No compartirlas seria imperdonable!"
+  description:
+    "Donas y postres en Maracaibo. No compartirlas seria imperdonable!",
 });
 
 function Document({ title, children }) {
@@ -53,9 +54,10 @@ export default function App() {
 }
 
 export function ErrorBoundary({ error }) {
+  console.log(error);
   return (
     <Document title="Ha ocurrido un error">
-      <main>
+      <main className="min-h-screen">
         <Error title="Ha ocurrido un errror">
           <p>{error.message || "Algo ha fallado. Intente de nuevo."}</p>
         </Error>

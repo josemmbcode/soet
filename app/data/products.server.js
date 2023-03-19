@@ -26,11 +26,12 @@ export async function getProduct(id) {
   }
 }
 
-export async function updateLocation(nombre, lugar) {
+export async function updateLocation(nombre, lugar, abierto) {
   try {
     return await prisma.location.update({
       data: {
         lugarActual: lugar,
+        abierto: abierto,
       },
       where: {
         nombre,

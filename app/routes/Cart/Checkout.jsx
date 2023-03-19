@@ -34,7 +34,8 @@ export async function loader() {
   }
   const volky = await getLocation("volky");
   const pinky = await getLocation("pinky");
-  return { volky, pinky };
+  const taller = await getLocation('taller')
+  return { volky, pinky,taller };
 }
 
 export async function action({ request }) {

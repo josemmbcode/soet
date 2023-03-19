@@ -13,7 +13,7 @@ export default function CheckoutForm() {
   function showForm(event) {
     setSelectedMethod(event.target.value);
   }
-  const { volky, pinky } = useLoaderData();
+  const { volky, pinky, taller } = useLoaderData();
 
   return (
     <Form
@@ -135,30 +135,48 @@ export default function CheckoutForm() {
             <h1 className="p-4 m-auto">
               El pedido puede ser retirado en nuestras direcciones:
             </h1>
-            <div className=" bg-volky sm:w-1/2 px-2 py-1 mx-auto my-1 rounded-2xl flex items-center">
-              <input
-                type="radio"
-                className="mx-1"
-                id="rb1"
-                name="carro"
-                value="volky"
-              />
-              <label className="text-justify" htmlFor="rb1">
-                {volky.lugarActual}
-              </label>
-            </div>
-            <div className=" bg-soet sm:w-1/2 px-2 py-1 mx-auto my-1 rounded-2xl flex items-center">
-              <input
-                type="radio"
-                className="mx-1"
-                id="rb2"
-                name="carro"
-                value="pinky"
-              />
-              <label className="text-justify" htmlFor="rb2">
-                {pinky.lugarActual}
-              </label>
-            </div>
+            {volky.abierto && (
+              <div className=" bg-volky sm:w-1/2 px-2 py-1 mx-auto my-1 rounded-2xl flex items-center">
+                <input
+                  type="radio"
+                  className="mx-1"
+                  id="rb1"
+                  name="carro"
+                  value="volky"
+                />
+                <label className="text-justify" htmlFor="rb1">
+                  {volky.lugarActual}
+                </label>
+              </div>
+            )}
+            {pinky.abierto && (
+              <div className=" bg-soet sm:w-1/2 px-2 py-1 mx-auto my-1 rounded-2xl flex items-center">
+                <input
+                  type="radio"
+                  className="mx-1"
+                  id="rb2"
+                  name="carro"
+                  value="pinky"
+                />
+                <label className="text-justify" htmlFor="rb2">
+                  {pinky.lugarActual}
+                </label>
+              </div>
+            )}
+            {taller.abierto && (
+              <div className=" bg-taller sm:w-1/2 px-2 py-1 mx-auto my-1 rounded-2xl flex items-center">
+                <input
+                  type="radio"
+                  className="mx-1"
+                  id="rb3"
+                  name="carro"
+                  value="taller"
+                />
+                <label className="text-justify" htmlFor="rb3">
+                  {taller.lugarActual}
+                </label>
+              </div>
+            )}
           </div>
           <button
             type="submit"

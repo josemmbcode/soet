@@ -42,7 +42,8 @@ model Order {
 }
 
 model Location {
-  id          String @id @default(auto()) @map("_id") @db.ObjectId
-  nombre      String @unique
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  nombre      String  @unique
   lugarActual String
+  abierto     Boolean
 }

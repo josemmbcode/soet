@@ -4,10 +4,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        soet: "#ffc0c8",
+        soet: "#ef8697",
         pearl: "#F8F6F0",
         off: "#f5f5f5",
-        volky:'#7cc8ec'
+        volky: "#a9daf5",
+        taller: "#CCB0C6",
       },
       fontFamily: {
         amarillo: ["Amarillo", "sans-serif"],

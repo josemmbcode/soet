@@ -24,7 +24,7 @@ export default function Products() {
       )}
       {cremaDonuts.length > 0 && (
         <>
-          <h2 className="text-2xl my-8 text-center leading-relaxed mx-2 sm:mx-auto font-semibold text-[#252525]">
+          <h2 className="text-2xl my-8 text-center leading-relaxed mx-2 sm:mx-auto font-semibold text-taller">
             CREMA PASTELERA
           </h2>
           <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 max-w-6xl">
@@ -36,7 +36,7 @@ export default function Products() {
       )}
       {chocoDonuts.length > 0 && (
         <>
-          <h2 className="text-2xl my-8 text-center leading-relaxed mx-2 sm:mx-auto font-semibold text-volky">
+          <h2 className="text-2xl my-8 text-center leading-relaxed mx-2 sm:mx-auto font-semibold text-blue-500">
             ¡CHOCOLATE!
           </h2>
           <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 max-w-6xl">
