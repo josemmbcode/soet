@@ -24,7 +24,7 @@ export default function cambiarLocalizacion() {
                 required
               />
             </p>
-            <p className="m-1">
+            <p className="m-1 self-center">
               <label
                 className="block mb-2 text-center"
                 htmlFor="volkyavailable"
@@ -119,7 +119,7 @@ export default function cambiarLocalizacion() {
                 <option value={false}> No</option>
               </select>
             </p>
-            <button className="rounded-md self-center mr-4 bg-soet p-2">
+            <button className="rounded-md self-center mr-4 bg-taller p-2">
               Cambiar
             </button>
           </Form>
