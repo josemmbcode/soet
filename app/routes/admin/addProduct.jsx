@@ -88,5 +88,5 @@ export async function action({ request }) {
     throw error;
   }
 
-  return redirect("/");
+  return redirect("/admin/orders");
 }
