@@ -152,3 +152,51 @@ export async function closeOrder(parameter, mode, id) {
     throw new Error("Ha ocurrido un error. Por favor intente luego.");
   }
 }
+
+export async function emergencyClosure() {
+  try {
+    const data = await prisma.emergency.findFirst();
+    return data.closed;
+  } catch (error) {
+    throw new Error("Ha ocurrido un error. Por favor intente luego.");
+  }
+}
+
+export async function dollarToday() {
+  try {
+    const data = await prisma.dollar.findFirst();
+    return data.value;
+  } catch (error) {
+    throw new Error("Ha ocurrido un error. Por favor intente luego.");
+  }
+}
+
+export async function changeDollar(value) {
+  try {
+    return await prisma.dollar.update({
+      data: {
+        value: +value,
+      },
+      where: {
+        id: "64188b64f6009ceb447fbef0",
+      },
+    });
+  } catch (error) {
+    throw new Error("Ha ocurrido un error. Por favor intente luego.");
+  }
+}
+
+export async function changeEmergencyClose(value){
+  try {
+    return await prisma.emergency.update({
+      data: {
+        closed: value,
+      },
+      where: {
+        id: "6418840af6009ceb447fbeef",
+      },
+    });
+  } catch (error) {
+    throw new Error("Ha ocurrido un error. Por favor intente luego.");
+  }
+}

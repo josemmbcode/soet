@@ -12,8 +12,7 @@ export default function Index() {
 }
 
 export async function loader() {
-  const isOpen = isBusinessOpen();
-
+  const isOpen = await isBusinessOpen();
   return { products: await getAvailableProducts(), isOpen: isOpen };
 }
 

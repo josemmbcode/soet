@@ -9,9 +9,12 @@ import { useSearchParams } from "@remix-run/react";
 import { SiZelle } from "react-icons/si";
 import { FaRegMoneyBillAlt } from "react-icons/fa";
 import { RiErrorWarningLine } from "react-icons/ri";
+import { dollarToday } from "../../data/products.server";
+import { useLoaderData } from "@remix-run/react";
 export default function Payment() {
   const [searchParams] = useSearchParams();
   const orderTotal = searchParams.get("total");
+  const dollar = useLoaderData()
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(cartActions.replaceCart({ items: [] }));
@@ -23,6 +26,9 @@ export default function Payment() {
       </h2>
       <h2 className="text-center sm:mx-auto mt-16 text-3xl mx-8">
         El total de su orden es ${orderTotal}
+      </h2>
+      <h2 className="text-center sm:mx-auto mt-16 text-3xl mx-8">
+        El cambio hoy es: Bs.{dollar}
       </h2>
       <h2 className="text-center sm:mx-auto mt-16 text-3xl h-32 mx-8">
         CONTAMOS CON LOS SIGUIENTES MÉTODOS DE PAGO
@@ -66,11 +72,12 @@ export default function Payment() {
   );
 }
 
-export function loader() {
-  const isOpen = isBusinessOpen();
+export async function loader() {
+  const isOpen = await isBusinessOpen();
+  const dollarValue = await dollarToday();
   if (!isOpen) {
     return redirect("/");
-  } else return null;
+  } else return dollarValue;
 }
 
 export function headers() {

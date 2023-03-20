@@ -28,7 +28,7 @@ export default function Checkout() {
 }
 
 export async function loader() {
-  const isOpen = isBusinessOpen();
+  const isOpen = await isBusinessOpen();
   if (!isOpen) {
     return redirect("/");
   }
