@@ -9,6 +9,7 @@ module.exports = {
         off: "#f5f5f5",
         volky: "#a9daf5",
         taller: "#CCB0C6",
+        darkVolky: "#4bbbfc"
       },
       fontFamily: {
         amarillo: ["Amarillo", "sans-serif"],
