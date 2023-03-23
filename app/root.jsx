@@ -29,7 +29,7 @@ function Document({ title, children }) {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="min-h-screen">
         <Provider store={store}>
           <PersistGate persistor={persistor}>
             <Header />
