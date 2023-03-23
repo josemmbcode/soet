@@ -11,11 +11,11 @@ export default function Presentation() {
           No compartirlas sería imperdonable
         </h1>
 
-        <h2 className="text-2xl my-8 text-center leading-relaxed mx-2 sm:mx-auto font-semibold">
+        <h2 className="text-2xl py-6 text-center leading-relaxed mx-2 sm:mx-auto font-semibold text-darkVolky">
           Disponibles de jueves a lunes.
         </h2>
       {!isOpen && (
-        <h2 className="text-2xl mt-6 mb-12 text-center leading-relaxed mx-4 p-4">
+        <h2 className="text-2xl mb-12 text-center leading-relaxed mx-4 p-6">
           ATENCIÓN: En este momento nos encontramos cerrados, ¡puedes mirar
           nuestros productos y decidir cual probar cuando volvamos!
         </h2>

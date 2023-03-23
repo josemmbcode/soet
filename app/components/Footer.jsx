@@ -8,10 +8,10 @@ export default function Footer() {
         <img className="h-24 sm:ml-6" src="/images/a3 (1).png" alt="soet logo" />
         <div className="flex sm:ml-14 my-4 space-x-2">
           <button>
-            <BsWhatsapp className="text-white" />
+            <a href="https://wa.me/message/VJNWIV6YOBULN1"><BsWhatsapp className="text-white" /></a>
           </button>
           <button>
-            <BsInstagram className="text-white" />
+            <a href="https://www.instagram.com/soetpostres/"><BsInstagram className="text-white"/></a>
           </button>
         </div>
       </div>

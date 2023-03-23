@@ -14,7 +14,7 @@ export default function Products() {
     <>
       {nutellaDonuts.length > 0 && (
         <>
-          <h2 className="text-2xl mb-2 mt-20 sm:my-6 text-center leading-relaxed mx-2 sm:mx-auto font-semibold text-pink-400">
+          <h2 className="text-2xl mb-1 mt-40 sm:my-6 text-center leading-relaxed mx-2 sm:mx-auto font-semibold text-pink-400">
             RELLENAS DE NUTELLA
           </h2>
           <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 max-w-6xl">
