@@ -5,7 +5,7 @@ export default function Presentation() {
   return (
     <>
     <div className="h-screen w-full">
-      <div className="bg-[url('/images/m&m.jpg')] bg-no-repeat bg-cover bg-center h-1/2 w-full">
+      <div className="bg-[url('/images/portada.jpg')] bg-no-repeat bg-cover bg-center h-1/2 w-full">
 
       </div> 
       <h1 className="text-3xl font-amarillo text-center leading-relaxed mx-2 sm:mx-auto my-20 text-darkVolky">

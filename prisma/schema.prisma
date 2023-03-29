@@ -15,6 +15,7 @@ model Product {
   name       String
   price      Float
   imgUrl     String?
+  placeholder String?
   disponible Boolean? @default(true)
   tipo       String
 }

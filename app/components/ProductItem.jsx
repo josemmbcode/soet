@@ -1,6 +1,8 @@
 import React from "react";
 import { cartActions } from "../store/cart";
 import { useDispatch } from "react-redux";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import 'react-lazy-load-image-component/src/effects/blur.css';
 export default function ProductItem({ product }) {
   const dispatch = useDispatch();
 
@@ -18,7 +20,7 @@ export default function ProductItem({ product }) {
   return (
     <div className=" m-6 overflow-hidden rounded-lg hover:shadow-slate-500 hover:shadow-md transition-shadow duration-200 sm:relative group">
       <div className="overflow-hidden flex-shrink-0 group-hover:opacity-50">
-        <img className="h-full w-full object-cover" src={product.imgUrl} />
+        <LazyLoadImage className="h-full w-full object-cover" src={product.imgUrl} />
       </div>
       <div className="flex justify-between p-3 capitalize sm:border-b-2 sm:border-b-soet border-x-2 border-x-soet sm:rounded-b-lg overflow-hidden max-sm:h-16">
         <p>{product.name}</p>

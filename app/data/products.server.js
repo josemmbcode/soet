@@ -96,7 +96,7 @@ export async function createProduct(productData) {
 
 export async function getOrdersPlaced() {
   try {
-    const orders = await prisma.order.findMany();
+    const orders = await prisma.order.findMany({ where: { cerrada: false } });
     return orders;
   } catch (error) {
     throw new Error("Ha ocurrido un error. Por favor intente luego.");
@@ -186,7 +186,7 @@ export async function changeDollar(value) {
   }
 }
 
-export async function changeEmergencyClose(value){
+export async function changeEmergencyClose(value) {
   try {
     return await prisma.emergency.update({
       data: {
