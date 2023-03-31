@@ -17,15 +17,15 @@ export default function CartItem({ item }) {
     );
   };
   return (
-    <div className="flex h-1/3 w-full items-center justify-center border-b border-soet py-1">
+    <div className="flex h-1/3 w-full items-center justify-center border-b border-volky py-1">
       <div className="flex flex-1 h-40 w-16 sm:h-52 sm:w-52 justify-center items-center px-2">
-        <img src={item.imgUrl} className="h-3/5 object-cover rounded-2xl" />
+        <img src={item.imgUrl} className="h-3/5 w-full rounded-3xl sm:w-3/5 object-cover sm:rounded-2xl" />
       </div>
-      <div className="font-bold w-0 flex-1 text-center capitalize">
-        {`${item.name} relleno de ${item.relleno}`}
+      <div className="text-xs sm:text-base w-0 flex-1 text-center capitalize">
+        {`${item.name} relleno ${item.relleno}`}
       </div>
-      <div className="w-0 font-extrabold flex-1 text-center">${item.price}</div>
-      <div className="w-0 font-extrabold flex-1 whitespace-nowrap sm:flex-1 text-center">
+      <div className="w-0 text-sm sm:text-base flex-1 text-center">${item.price}</div>
+      <div className="w-0 text-sm sm:text-base flex-1 whitespace-nowrap sm:flex-1 text-center">
         <button
           onClick={removeItemHandler}
           className="text-pink-500 text-2xl mx-2 text-center"
@@ -40,7 +40,7 @@ export default function CartItem({ item }) {
           +
         </button>
       </div>
-      <div className="w-0 font-extrabold flex-1 text-center">${item.total}</div>
+      <div className="w-0 text-sm sm:text-base flex-1 text-center">${item.total}</div>
     </div>
   );
 }
