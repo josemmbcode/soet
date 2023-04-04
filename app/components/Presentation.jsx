@@ -19,20 +19,20 @@ export default function Presentation() {
           Disponibles de jueves a lunes.
         </h2>
       </div>
-      {isOpen && (
+      {!isOpen && (
         <h2 className="text-2xl mb-6 text-center leading-relaxed mx-4 p-6">
           ATENCIÓN: En este momento nos encontramos cerrados, ¡puedes mirar
           nuestros productos y decidir cual probar cuando volvamos!
         </h2>
       )}
-      {!isOpen && (
+      {isOpen && (
         <>
           <h2 className="text-2xl my-10 text-center leading-relaxed mx-2 sm:mx-auto font-semibold text-darkVolky">
             EL CAMBIO DE HOY ES: Bs{dollar}
           </h2>
-          <div className="flex items-center justify-around w-[75vw]">
+          <div className="flex max-sm:flex-col items-center justify-around w-[75vw]">
             <div
-              className={`rounded-xl bg-darkVolky p-4 text-off w-72 text-center ${
+              className={`rounded-xl bg-darkVolky p-4 text-off w-72 text-center my-2 ${
                 inView
                   ? "opacity-100 animate-bounceOnce ease-out"
                   : "opacity-0 transition-none"
@@ -42,7 +42,7 @@ export default function Presentation() {
               <div>Volky: {volky.lugarActual}</div>
             </div>
             <div
-              className={`rounded-xl bg-soet p-4 text-off w-72 text-center ${
+              className={`rounded-xl bg-soet p-4 text-off w-72 text-center my-2 ${
                 inView
                   ? "opacity-100 animate-bounceOnce ease-out"
                   : "opacity-0 transition-none"
