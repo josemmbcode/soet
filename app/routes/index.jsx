@@ -1,7 +1,8 @@
-import { getAvailableProducts } from "../data/products.server";
+import { dollarToday, getAvailableProducts } from "../data/products.server";
 import Presentation from "../components/Presentation";
 import Products from "../components/Products";
 import { isBusinessOpen } from "../data/utils.server";
+import { getLocation } from "../data/products.server";
 export default function Index() {
   return (
     <div className="flex justify-center flex-col items-center">
@@ -13,7 +14,15 @@ export default function Index() {
 
 export async function loader() {
   const isOpen = await isBusinessOpen();
-  return { products: await getAvailableProducts(), isOpen: isOpen };
+  const volky = await getLocation("volky");
+  const pinky = await getLocation("pinky");
+  return {
+    products: await getAvailableProducts(),
+    isOpen: isOpen,
+    dollar: await dollarToday(),
+    pinky,
+    volky,
+  };
 }
 
 export function headers() {
