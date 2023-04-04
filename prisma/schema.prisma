@@ -11,13 +11,14 @@ datasource db {
 }
 
 model Product {
-  id         String   @id @default(auto()) @map("_id") @db.ObjectId
-  name       String
-  price      Float
-  imgUrl     String?
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  price       Float
+  imgUrl      String?
   placeholder String?
-  disponible Boolean? @default(true)
-  tipo       String
+  disponible  Boolean? @default(true)
+  description String?
+  tipo        String
 }
 
 model User {
@@ -50,11 +51,11 @@ model Location {
 }
 
 model Emergency {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
+  id     String  @id @default(auto()) @map("_id") @db.ObjectId
   closed Boolean @default(true)
 }
 
 model Dollar {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
   value Float
 }

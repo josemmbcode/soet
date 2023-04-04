@@ -17,7 +17,7 @@ export default function Products() {
           <h2 className="text-2xl mb-1 sm:my-6 text-center leading-relaxed mx-2 sm:mx-auto font-semibold text-pink-400">
             RELLENAS DE NUTELLA
           </h2>
-          <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 max-w-6xl">
+          <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
             {nutellaDonuts.map((product) => (
               <ProductItem key={product.id} product={product} />
             ))}
