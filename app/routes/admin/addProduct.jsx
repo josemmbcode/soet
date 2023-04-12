@@ -60,6 +60,17 @@ export default function addProduct() {
             className="block mb-2 p-2 rounded-md w-full"
           />
         </p>
+        <p className="m-1">
+          <label className="block mb-2" htmlFor="description">
+            Descripcion
+          </label>
+          <input
+            type="text"
+            id="description"
+            name="description"
+            className="block mb-2 p-2 rounded-md w-full"
+          />
+        </p>
         <div className="mt-8 items-center gap-4 flex flex-col">
           <button
             disabled={isSubmitting}
