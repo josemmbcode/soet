@@ -2,19 +2,18 @@ import React from "react";
 import { cartActions } from "../../store/cart";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { isBusinessOpen } from "../../data/utils.server";
 import { redirect } from "react-router";
 import { RiBankCard2Line } from "react-icons/ri";
 import { useSearchParams } from "@remix-run/react";
 import { SiZelle } from "react-icons/si";
 import { FaRegMoneyBillAlt } from "react-icons/fa";
 import { RiErrorWarningLine } from "react-icons/ri";
-import { dollarToday } from "../../data/products.server";
+import { dollarToday, emergencyClosure } from "../../data/products.server";
 import { useLoaderData } from "@remix-run/react";
 export default function Payment() {
   const [searchParams] = useSearchParams();
   const orderTotal = searchParams.get("total");
-  const dollar = useLoaderData()
+  const dollar = useLoaderData();
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(cartActions.replaceCart({ items: [] }));
@@ -73,7 +72,7 @@ export default function Payment() {
 }
 
 export async function loader() {
-  const isOpen = await isBusinessOpen();
+  const isOpen = await emergencyClosure();
   const dollarValue = await dollarToday();
   if (!isOpen) {
     return redirect("/");
