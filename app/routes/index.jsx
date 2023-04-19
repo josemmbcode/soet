@@ -1,7 +1,7 @@
 import { dollarToday, getAvailableProducts } from "../data/products.server";
 import Presentation from "../components/Presentation";
 import Products from "../components/Products";
-import { isBusinessOpen } from "../data/utils.server";
+import { emergencyClosure } from "../data/products.server";
 import { getLocation } from "../data/products.server";
 export default function Index() {
   return (
@@ -13,7 +13,7 @@ export default function Index() {
 }
 
 export async function loader() {
-  const isOpen = await isBusinessOpen();
+  const isOpen = await emergencyClosure();
   const volky = await getLocation("volky");
   const pinky = await getLocation("pinky");
   return {

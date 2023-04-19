@@ -45,7 +45,7 @@ function options() {
         >
           <p className="m-1">
             <label className="m-1" htmlFor="cerrado">
-              Cerrado?
+              Abierto?
             </label>
             <select id="cerrado" name="cerrado">
               <option value={true}>Si</option>

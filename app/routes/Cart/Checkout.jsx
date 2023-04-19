@@ -5,6 +5,7 @@ import {
   getLocation,
   getProduct,
   placeOrder,
+  emergencyClosure,
 } from "../../data/products.server";
 import OrderSummary from "../../components/OrderSummary";
 import CheckoutForm from "../../components/CheckoutForm";
@@ -28,14 +29,14 @@ export default function Checkout() {
 }
 
 export async function loader() {
-  const isOpen = await isBusinessOpen();
+  const isOpen = await emergencyClosure();
   if (!isOpen) {
     return redirect("/");
   }
   const volky = await getLocation("volky");
   const pinky = await getLocation("pinky");
-  const taller = await getLocation('taller')
-  return { volky, pinky,taller };
+  const taller = await getLocation("taller");
+  return { volky, pinky, taller };
 }
 
 export async function action({ request }) {
