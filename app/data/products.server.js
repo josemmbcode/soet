@@ -86,7 +86,7 @@ export async function createProduct(productData) {
         price: +productData.price,
         imgUrl: productData.imgUrl,
         tipo: productData.tipo,
-        descrption: productData.descrption,
+        description: productData.description,
       },
     });
   } catch (error) {
