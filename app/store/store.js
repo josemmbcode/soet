@@ -15,6 +15,7 @@ import storage from "redux-persist/lib/storage";
 
 const persistConfig = {
   key: "cart",
+  version: 1,
   storage,
 };
 const reducers = combineReducers({ cart: cartSlice.reducer });

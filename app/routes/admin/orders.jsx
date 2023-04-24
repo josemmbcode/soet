@@ -28,6 +28,7 @@ export default function orders() {
             <th>direccion</th>
             <th>Pto Ref</th>
             <th>Sector</th>
+            <th>Delivery</th>
             <th>Total ($)</th>
             <th>Resumen</th>
             <th>Pagada?</th>
@@ -68,6 +69,9 @@ export default function orders() {
                 </td>
                 <td className="max-md:block max-md:border-none max-md:border-b max-md:border-gray-600 max-md:relative max-md:pl-[50%] max-md:whitespace-normal max-md:text-left">
                   {order.sector}
+                </td>
+                <td className="max-md:block max-md:border-none max-md:border-b max-md:border-gray-600 max-md:relative max-md:pl-[50%] max-md:whitespace-normal max-md:text-left">
+                  {order.delivery}
                 </td>
                 <td className="max-md:block max-md:border-none max-md:border-b max-md:border-gray-600 max-md:relative max-md:pl-[50%] max-md:whitespace-normal max-md:text-left">
                   ${order.total}

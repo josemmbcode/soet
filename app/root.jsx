@@ -20,10 +20,11 @@ export const meta = () => ({
   description:
     "Donas y postres en Maracaibo. No compartirlas seria imperdonable!",
 });
+import { Suspense } from "react";
 
 function Document({ title, children }) {
   return (
-    <html lang="en">
+    <html>
       <head>
         {title && <title>{title}</title>}
         <Meta />
@@ -31,10 +32,12 @@ function Document({ title, children }) {
       </head>
       <body className="min-h-screen">
         <Provider store={store}>
-          <PersistGate persistor={persistor}>
-            <Header />
-            {children}
-            <Footer />
+          <PersistGate persistor={persistor} loading={<div>Loading...</div>}>
+            <Suspense fallback={<div>Loading...</div>}>
+              <Header />
+              {children}
+              <Footer />
+            </Suspense>
           </PersistGate>
         </Provider>
         <ScrollRestoration />

@@ -9,19 +9,24 @@ import {
 } from "../../data/products.server";
 import OrderSummary from "../../components/OrderSummary";
 import CheckoutForm from "../../components/CheckoutForm";
-import { isBusinessOpen } from "../../data/utils.server";
 import EmptyCar from "../../components/EmptyCar";
 export default function Checkout() {
-  const total = useSelector((state) => state.cart.total);
+  const total = useSelector((state) => state.cart.grandTotal);
   const orderSummary = useSelector((state) => state.cart.items);
-
+  const delivery = useSelector((state) => state.cart.delivery);
+  const subtotal = useSelector((state) => state.cart.total);
   return (
     <>
       {orderSummary.length === 0 && <EmptyCar />}
       {orderSummary.length > 0 && (
         <div className="flex flex-col-reverse sm:flex-row">
           <CheckoutForm />
-          <OrderSummary summary={orderSummary} total={total} />
+          <OrderSummary
+            subtotal={subtotal}
+            summary={orderSummary}
+            total={total}
+            delivery={delivery}
+          />
         </div>
       )}
     </>
@@ -58,7 +63,7 @@ export async function action({ request }) {
     values.map((value) => (totalCalculated += value));
   });
 
-  if (totalCalculated == orderData.total) {
+  if (totalCalculated == orderData.subtotal) {
     try {
       validateInput(orderData);
     } catch (error) {

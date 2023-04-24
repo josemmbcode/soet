@@ -3,7 +3,14 @@ import React from "react";
 import { FaShoppingBag } from "react-icons/fa";
 import { useSelector } from "react-redux";
 export default function Header() {
-  const totalItems = useSelector((state) => state.cart.totalItems);
+  const totalItems = useSelector((state) => {
+    if (!state || !state.cart) {
+      console.error("Invalid state or cart data!");
+      return 0;
+    }
+    return state.cart.totalItems;
+  });
+  
   return (
     <header className="flex justify-between p-3 items-center bg-soet">
       <Link to="/">

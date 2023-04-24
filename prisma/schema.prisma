@@ -37,6 +37,7 @@ model Order {
   direccion  String?
   referencia String?
   sector     String?
+  delivery   Float?
   total      Float
   resumen    Json
   pagada     Boolean? @default(false)

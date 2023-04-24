@@ -130,6 +130,7 @@ export async function placeOrder(orderSummary) {
         total: +orderSummary.total,
         sector: orderSummary.sector,
         resumen: orderSummary.resumen,
+        delivery: +orderSummary.delivery,
         carro: orderSummary.carro,
       },
     });
