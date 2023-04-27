@@ -18,8 +18,8 @@ export default function ProductItem({ product }) {
     );
   };
   return (
-    <div className=" m-6 overflow-hidden rounded-lg hover:shadow-slate-500 hover:shadow-md transition-shadow duration-200 w-40 sm:w-60 relative group">
-      <div className="overflow-hidden group-hover:opacity-50 w-40 h-36 sm:w-60 sm:h-64 object-cover object-center">
+    <div className=" m-6 overflow-hidden rounded-lg hover:shadow-slate-500 hover:shadow-md transition-shadow duration-200 w-36 sm:w-60 relative group">
+      <div className="overflow-hidden group-hover:opacity-50 w-36 h-36 sm:w-60 sm:h-64 object-cover object-center">
         <LazyLoadImage
           className="object-cover object-center h-full w-full"
           style={{ objectFit: "cover", objectPosition: "center" }}
