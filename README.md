@@ -1,34 +1,16 @@
-# Welcome to Remix!
+# ALTERUM
+This is a web application for a clothing brand built using Remix, Tailwind CSS, and MongoDB Atlas. The aim of this project is to create a user-friendly and visually appealing web app for an upcoming, digitally designed clothing app from Venezuela.
 
-- [Remix Docs](https://remix.run/docs)
+## Features
+Responsive Design: The web app is designed to work seamlessly across different devices and screen sizes, providing a consistent and user-friendly experience.
 
-## Deployment
+Minimal JavaScript: Efforts have been made to reduce the amount of JavaScript required for the web app to function, resulting in faster load times and improved performance.
 
-After having run the `create-remix` command and selected "Vercel" as a deployment target, you only need to [import your Git repository](https://vercel.com/new) into Vercel, and it will be deployed.
+Remix: Remix is used as the web application framework, providing a solid foundation for building server-rendered React applications. It offers powerful features such as routing, data fetching, and server-side rendering.
 
-If you'd like to avoid using a Git repository, you can also deploy the directory by running [Vercel CLI](https://vercel.com/cli):
+Tailwind CSS: The web app utilizes Tailwind CSS.
 
-```sh
-npm i -g vercel
-vercel
-```
+MongoDB Atlas: MongoDB Atlas is used as the cloud-hosted database solution for storing and managing all its data. It provides a reliable and scalable backend for your application.
 
-It is generally recommended to use a Git repository, because future commits will then automatically be deployed by Vercel, through its [Git Integration](https://vercel.com/docs/concepts/git).
-
-## Development
-
-To run your Remix app locally, make sure your project's local dependencies are installed:
-
-```sh
-npm install
-```
-
-Afterwards, start the Remix development server like so:
-
-```sh
-npm run dev
-```
-
-Open up [http://localhost:3000](http://localhost:3000) and you should be ready to go!
-
-If you're used to using the `vercel dev` command provided by [Vercel CLI](https://vercel.com/cli) instead, you can also use that, but it's not needed.
+# Contact
+If you have any questions or need further assistance, please feel free to contact me at jose.moreno.mb@icloud.com.
